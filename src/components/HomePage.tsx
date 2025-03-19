@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 import { Github } from "lucide-react";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
 
 const EditorJSComponent = dynamic(
     () => {
@@ -13,6 +14,8 @@ const EditorJSComponent = dynamic(
 );
 
 const HomePage: React.FC = () => {
+    const { data: session } = useSession();
+    console.log(session);
     const editorRef = useRef<EditorJS | null>(null);
     const [isSaving, setIsSaving] = useState<boolean>(false);
     const [theme, setTheme] = useState<"light" | "dark">("light");
