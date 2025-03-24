@@ -15,7 +15,6 @@ const EditorJSComponent = dynamic(
 
 const HomePage: React.FC = () => {
     const { data: session } = useSession();
-    console.log(session);
     const editorRef = useRef<EditorJS | null>(null);
     const [isSaving, setIsSaving] = useState<boolean>(false);
     const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -73,17 +72,21 @@ const HomePage: React.FC = () => {
                 <div className="flex items-center space-x-4">
                     <button
                         onClick={toggleTheme}
-                        className={`px-3 py-1 rounded-md ${
-                            theme === "dark"
-                                ? "bg-gray-700 hover:bg-gray-600"
-                                : "bg-gray-100 hover:bg-gray-200"
-                        }`}
+                        className={`px-3 py-1 rounded-md`}
                     >
                         {theme === "dark" ? "☀️" : "🌙"}
                     </button>
-                    <div className="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white">
-                        U
-                    </div>
+                    {session?.user?.image ? (
+                        <img
+                            src={session.user.image}
+                            alt="User Avatar"
+                            className="h-8 w-8 rounded-full"
+                        />
+                    ) : (
+                        <div className="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white">
+                            U
+                        </div>
+                    )}
                 </div>
             </nav>
 

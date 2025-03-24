@@ -1,7 +1,5 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GitHub from "next-auth/providers/github";
-import { JWT } from "next-auth/jwt";
-import { Session } from "next-auth";
 
 // Declare module augmentations for next-auth
 declare module "next-auth" {
