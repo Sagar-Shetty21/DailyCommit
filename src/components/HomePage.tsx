@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
                 </div>
             </nav>
 
-            {/* Main Content */}
+            {/* Main Content Section */}
             <main className="flex-1 container mx-auto px-4 py-6 max-w-4xl">
                 <div className="mb-6">
                     <div className="flex items-center justify-between">
