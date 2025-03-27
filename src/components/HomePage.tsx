@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
                     : "bg-gray-50 text-gray-900"
             }`}
         >
-            {/* Navbar */}
+            {/* Navbar Section */}
             <nav
                 className={`px-6 py-4 flex items-center justify-between ${
                     theme === "dark" ? "bg-gray-800" : "bg-white"
