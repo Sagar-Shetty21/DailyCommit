@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 import { Github } from "lucide-react";
 import dynamic from "next/dynamic";
