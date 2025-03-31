@@ -47,7 +47,24 @@ export const authOptions: NextAuthOptions = {
             if (token.id) {
                 session.user.id = token.id;
             }
+
+            // Store the token in localStorage when session is created/updated
+            if (typeof window !== "undefined" && token.accessToken) {
+                localStorage.setItem(
+                    "github_token",
+                    token.accessToken as string
+                );
+            }
+
             return session;
+        },
+    },
+    events: {
+        signOut: () => {
+            // Clear the token from localStorage when user signs out
+            if (typeof window !== "undefined") {
+                localStorage.removeItem("github_token");
+            }
         },
     },
 };
