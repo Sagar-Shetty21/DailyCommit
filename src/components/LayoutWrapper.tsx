@@ -1,16 +1,15 @@
 "use client";
 
+import { RootState, toggleTheme } from "@/utils/store";
 import { Github } from "lucide-react";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     const { data: session } = useSession();
-    const [theme, setTheme] = useState<"light" | "dark">("light");
-
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    };
+    const theme = useSelector((state: RootState) => state.theme.mode);
+    const dispatch = useDispatch();
 
     return (
         <div
@@ -38,7 +37,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
                 </div>
                 <div className="flex items-center space-x-4">
                     <button
-                        onClick={toggleTheme}
+                        onClick={() => dispatch(toggleTheme())}
                         className={`px-3 py-1 rounded-md`}
                     >
                         {theme === "dark" ? "☀️" : "🌙"}
