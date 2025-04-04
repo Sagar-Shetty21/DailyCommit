@@ -92,7 +92,7 @@ const ReposList: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-r from-indigo-50 to-blue-50">
             {/* Main content */}
-            <main className="flex-1 container mx-auto px-6 pb-20">
+            <main className="flex-1 container mx-auto px-6 py-4 pb-20">
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
