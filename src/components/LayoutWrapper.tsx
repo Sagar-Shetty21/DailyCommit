@@ -5,11 +5,17 @@ import { Github } from "lucide-react";
 import { useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { usePathname } from "next/navigation";
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     const { data: session } = useSession();
     const theme = useSelector((state: RootState) => state.theme.mode);
     const dispatch = useDispatch();
+    const pathname = usePathname();
+
+    if (pathname === "/login") {
+        return <>{children}</>;
+    }
 
     return (
         <div
