@@ -91,7 +91,9 @@ export default function LoginPage() {
                         </p>
 
                         <button
-                            onClick={() => signIn("github")}
+                            onClick={() =>
+                                signIn("github", { callbackUrl: "/" })
+                            }
                             className="w-full bg-gray-900 cursor-pointer hover:bg-gray-800 text-white py-3 px-4 rounded-lg flex items-center justify-center transition duration-300"
                         >
                             <Github className="w-5 h-5 mr-2" />
