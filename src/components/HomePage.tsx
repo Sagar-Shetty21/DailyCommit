@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
                 setIsSaving(true);
                 const data = await editorRef.current.save();
 
-                // Simulate API call to save to GitHub
+                // Simulate API call to save to Github
                 await new Promise((resolve) => setTimeout(resolve, 1500));
 
                 console.log("Saved data to GitHub:", data);
